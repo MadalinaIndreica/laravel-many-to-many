@@ -43,6 +43,16 @@
                 </select>
                
             </div>
+            {{-- technologies --}}
+            <div class="mb-3">
+                <h4>modifica la tecnologia:</h4>
+                @foreach ($technologies as $technology)
+                    <div class="form-check">
+                        <input @checked($errors->any() ? in_array($technology->id,old('technologies',[])) : $project->technologies->contains($technology)) type="checkbox" id="technology-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]">
+                            <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                    </div>
+                @endforeach
+            </div>
 
             <button class="btn btn-primary" type="submit">Salva le modifiche</button>
            
