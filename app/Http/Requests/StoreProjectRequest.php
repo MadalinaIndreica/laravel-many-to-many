@@ -26,7 +26,8 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', 'max:200', 'min:5', 'unique:projects'],
             'description' => ['nullable'],
-            'type_id' => ['nullable']
+            'type_id' => ['nullable'],
+            'technologies' => ['exists:technologies,id']
         ];
     }
     public function messages()
