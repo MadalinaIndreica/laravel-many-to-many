@@ -43,6 +43,17 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            {{-- technologies checkbox --}}
+            <div class="mb-3">
+                <h4>seleziona una tecnologia:</h4>
+                @foreach ($technologies as $technology)
+                <div class="form-check">
+                    <input type="checkbox" id="technology-{{ $technology->id }}" value="{{ $technology->id }}" name="technologies[]">
+                    <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                </div>
+                    
+                @endforeach
+            </div>
 
 
 
